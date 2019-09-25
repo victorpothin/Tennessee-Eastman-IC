@@ -8,7 +8,7 @@ function [phi,t2f,qf,t2,q] = geraEstatistica(M,T,s,a,qLim,t2Lim)
 
     %Filtro t2
     t2f = t2(1);
-    ewma = 0.4;
+    ewma = 0.125;
     ii = 0;
     for i=1:length(t2)
         t2f(i+1)=ewma*t2(i)+(1-ewma)*t2f(i);
@@ -22,7 +22,7 @@ function [phi,t2f,qf,t2,q] = geraEstatistica(M,T,s,a,qLim,t2Lim)
 
     %Filtro Q
     qf = q(1);
-    ewma = 0.3;
+    ewma = 0.125;
     for i=1:length(q)
         qf(i+1)=ewma*q(i)+(1-ewma)*qf(i);
     end

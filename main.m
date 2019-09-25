@@ -2,7 +2,7 @@
 clear all
 clc
 
-load('matlab.mat');
+load('base.mat');
 
 %taxa de variança 90% aplicar no PCA% 
 variance = 90;
@@ -10,7 +10,7 @@ variance = 90;
 %------------------------- FASE DE PROJETO------------------------------
 
 %Segunda região setpoint 22.89
-[regiao,desPadReg,mediaReg] = padronizaBase(simoutFalha7(1:4000,:),0,0);
+[regiao,desPadReg,mediaReg] = padronizaBase(simoutFalha6(1:4000,:),0,0);
 
 %Visualizaçao da variaveis de entrada
 geraGraficoVariaveis(regiao);
@@ -23,7 +23,7 @@ geraGraficoVariaveis(regiao);
 
 % -------------------- FASE DE MONITORAMENTO------------------------
 
-[dataTeste,~,~] = padronizaBase(simoutFalha7,desPadReg,mediaReg);
+[dataTeste,~,~] = padronizaBase(simoutFalha6,desPadReg,mediaReg);
 
 %Visualizaçao da variaveis de entrada
 geraGraficoVariaveis(dataTeste);

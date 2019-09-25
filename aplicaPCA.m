@@ -5,16 +5,23 @@ function [score,a,s,coeff] = aplicaPCA(dataBase,variance)
     a=0;
     latent = diag(s);
     
-    latent = latent/sum(latent);
+%     latent = latent/sum(latent);
+%     for i=1:length(latent)
+%         Acumm(i) = sum(latent(1:i));
+%         if Acumm(i)>=(variance/100) && a==0 
+%              a = i;
+%         end
+%     end 
+%     
+
     for i=1:length(latent)
-        Acumm(i) = sum(latent(1:i));
-        if Acumm(i)>=(variance/100) && a==0 
+        if latent(i) < 1 && a==0 
              a = i;
         end
     end 
     
-    a=6;
-   
+    a = a-1;
+    
     coeff = coeff(:,1:a);
     score = dataBase*coeff;
 
